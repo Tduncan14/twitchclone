@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+
+html{
+  @apply bg-black text-white scroll-smooth
+}
+
 html,
 body {
   padding: 0;
