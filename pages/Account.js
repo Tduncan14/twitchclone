@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
-import {FaGithub} from 'react-icons/fa'
+import {FaGithub, FaGoogle} from 'react-icons/fa'
 
 
 
@@ -13,7 +13,7 @@ const Account = () => {
     const { data: session } = useSession()
 
 
-    console.log(session,'this the session')
+    
     if (session) {
       return (
         <div className="pt-[100px] flex flex-col max-w-[400px] w-full mx-auto p-4">
@@ -28,13 +28,18 @@ const Account = () => {
       )
     }
     return (
+      <>
       <div className="pt-[100px] flex flex-col max-w-[400px] w-full mx-auto p-4">
         <h2 className="text-3xl font-bold">Login</h2>
         <p className="py-4">Choose the account you want to sign in with</p>
         <button className="flex items-center justify-center p-3 bg-gray-600 border-gray-600 m-2" onClick={() => signIn()}><FaGithub  className="mr-2"/>Sign in with <span className="font-bold pl-1"> Github</span></button>
-        {/* <button onClick={() => signIn()}>Sign in with <span className="font-bold pl-1"> Github</span></button> */}
+        <button className="flex items-center justify-center p-3 bg-blue-600 border-blue-600 m-2" onClick={() => signIn()}><FaGoogle  className="mr-2"/>Sign in with <span className="font-bold pl-1"> Google</span></button>
+
       </div>
+       
+      </>
     )
+
 }
 
 

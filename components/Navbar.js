@@ -5,7 +5,7 @@ import Logo from '../public/assets/logo.png';
 import { Menu,Transition } from '@headlessui/react'
 import {BsPerson, BsSearch, BsThreeDotsVertical} from 'react-icons/bs'
 import {AiOutlineMenu,AiOutlineClose} from'react-icons/ai'
-
+import {useSession,signOut,signIn} from 'next-auth/react'
 
 function classNames(...classes){
 
@@ -19,6 +19,7 @@ const Navbar = () => {
 
     const [nav,setNav] = useState(false)
 
+    const { data: session } = useSession()
 
 
     const handleNav = () =>  {
@@ -134,7 +135,73 @@ const Navbar = () => {
 
             {/* right */}
 
+            {session ? ( <div className="hidden md:flex grow items-center justify-end">
+                 <Link href="/account">
+                  <div>
+                    <p className='pr-4 cursor-pointer'>
+                        Welcome, {session.user.name}
+                    </p>
+                  </div>
+                 
+                 </Link>
 
+                 <Menu as='div' className='relative text-left'>
+            <div className='flex'>
+              <Menu.Button>
+                <BsThreeDotsVertical size={20} />
+              </Menu.Button>
+            </div>
+
+            <Transition
+              as={Fragment}
+              enter='transition ease-out duration-100'
+              enterFrom='transform opacity-0 scale-95'
+              enterTo='transform opacity-100 scale-100'
+              leave='transition ease-in duration-75'
+              leaveFrom='transform opacity-100 scale-100'
+              leaveTo='transform opacity-0 scale-95'
+            >
+              <Menu.Items className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#0e0e10] ring-1 ring-white ring-opacity-5 focus:outline-none'>
+                <div className='py-1'>
+                 
+                  <Menu.Item>
+                    {({ active }) => (
+                      <a
+                        href='#'
+                        className={classNames(
+                          active
+                            ? 'bg-gray-500 text-gray-100'
+                            : 'text-gray-200',
+                          'block px-4 py-2 text-sm'
+                        )}
+                      >
+                         Account
+                      </a>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <a
+                        href='#'
+                        className={classNames(
+                          active
+                            ? 'bg-gray-500 text-gray-100'
+                            : 'text-gray-200',
+                          'block px-4 py-2 text-sm'
+                        )}
+                      >
+                        Logout
+                      </a>
+                    )}
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+            </Transition>
+          </Menu>
+                  
+
+              
+                 </div>)  : (
             <div className="hidden md:flex grow item-center justify-end">
 
                 <div className="flex items-center">
@@ -146,9 +213,9 @@ const Navbar = () => {
 
                 </div>
 
-            </div>
+            </div>)
 
- 
+            }
 
             {/* hamburger menu */}
             <div  onClick={handleNav} className="block md:hidden z-10 cursor-pointer">
