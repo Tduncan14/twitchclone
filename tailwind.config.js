@@ -4,7 +4,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      negativeM:{
+        '-2rem':'2rem'
+      }
+    },
     screens:{
       sm:'640px',
 
@@ -17,7 +21,8 @@ module.exports = {
      '2xl':'1600px',
 
      '3xl': '1800px'
-    }
+    },
+
   },
   plugins: [],
 }

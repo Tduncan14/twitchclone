@@ -4,8 +4,19 @@
 
 
 
+
+.negativeM{
+  margin-left:-2rem;
+}
+
+
+
+
 html{
-  @apply bg-black text-white scroll-smooth
+
+  @apply bg-black text-white ;
+  overflow-x: scroll;
+
 }
 
 html,
@@ -14,6 +25,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height:100%;
 }
 
 a {
