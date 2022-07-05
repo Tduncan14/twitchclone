@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 
-export default function CaterogiesItems({img = '',
-title='',
-viewers = '',
-tag1 = '',
-tag2 ='',}) {
+export default function CaterogiesItems({img ,
+title,
+viewers ,
+tag1 ,
+tag2 = null,}) {
   return (
     <div className="p-2">
         <Image  src={img} width="261" height='350' alt="images"/>
@@ -14,12 +14,15 @@ tag2 ='',}) {
             <p className="text-sm text-gray-500 py-[2px]">{viewers}</p>
 
             <div className='flex'>
+                <div>
                 <p className="text-sm bg-gray-700 rounded-full inline-block py-[2px] px-3">{tag1} </p>
+                </div>
+                <div >
+                { tag2 ?  (<p className="text-sm bg-gray-700 rounded-full inline-block py-[2px] px-3" >{tag2}</p>) : ''}
+            </div>
             </div>
 
-            <div className="py-2">
-               <p className="text-sm bg-gray-700 rounded-full inline-block py-[2px] px-3" >{tag2}</p>
-            </div>
+           
         </div>
       
     </div>

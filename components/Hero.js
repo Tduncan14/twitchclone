@@ -11,9 +11,9 @@ const Hero = () => {
             <iframe 
             className='absolute top-0 left-0 right-0 bottom-0 w-full h-full'
             src="https://www.youtube.com/embed/I4o7eSKLN40"
-             title="YouTube video player" frameborder="0"
+             title="YouTube video player" frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-             allowfullscreen
+             allowFullScreen
             ></iframe>
             </div>
         </div>

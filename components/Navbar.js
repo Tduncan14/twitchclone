@@ -136,7 +136,7 @@ const Navbar = () => {
             {/* right */}
 
             {session ? ( <div className="hidden md:flex grow items-center justify-end">
-                 <Link href="/account">
+                 <Link href="/Account">
                   <div>
                     <p className='pr-4 cursor-pointer'>
                         Welcome, {session.user.name}
@@ -236,8 +236,8 @@ const Navbar = () => {
                 <ul className="text-center">
                     <li onClick={() => setNav(false)} className="p-4 text-3xl font-bold"><Link href='/'>Home</Link></li>
 
-                    <li  onClick={() => setNav(false) }className="p-4 text-3xl font-bold"><Link href='/'>Live Channels</Link></li>
-                    <li  onClick={() => setNav(false)}  className="p-4 text-3xl font-bold"><Link href='/'>Top Categories</Link></li>
+                    <li  onClick={() => setNav(false) }className="p-4 text-3xl font-bold"><Link href='/#live'>Live Channels</Link></li>
+                    <li  onClick={() => setNav(false)}  className="p-4 text-3xl font-bold"><Link href='/#categories'>Top Categories</Link></li>
                     <li  onClick={() => setNav(false) }className="p-4 text-3xl font-bold"><Link href='/Account'>Account</Link></li>
 
                 </ul>
