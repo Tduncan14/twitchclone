@@ -8,6 +8,7 @@ module.exports = {
     domains:[
       "avatars.githubusercontent.com",
        "robohash.org",
+       "static-cdn.jtvnw.net"
      
     ]
   }
